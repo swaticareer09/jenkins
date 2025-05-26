@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite" parallel="tests" thread-count="10">
+
+    <parameter name = "LevelUser" value= "broker"/>
+
+	<test name="rollingReturn">
+		<classes>
+			<class name="jenkins.rollingReturn"></class>
+
+		</classes>
+	</test>
+</suite>
+	
