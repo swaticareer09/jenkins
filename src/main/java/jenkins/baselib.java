@@ -115,17 +115,14 @@ public class baselib {
 		if (environemnt.equalsIgnoreCase("automationAWS") || environemnt.equalsIgnoreCase("automationOne")
 				|| environemnt.equalsIgnoreCase("automationTwo") || environemnt.equalsIgnoreCase("automationThree")) {
 			if (ITestResult.FAILURE == result.getStatus()) {
-				String Failresult = UploadRead.VerifyNoDataAvailable();
 				String screenshotPath = screenshotLib.takescreenshot(scriptName);
-				String getS3url = UploadRead.upload(screenshotPath);
-				ReportIng_preview reportImgPreview = new ReportIng_preview(getS3url);
-				String windowOpenHtml = reportImgPreview.getWindowOpenHtml();
-				test.fail("This Test Case FAILED: " + Failresult.toUpperCase() + "<br>" + windowOpenHtml);
+//				ReportIng_preview reportImgPreview = new ReportIng_preview(getS3url);
+//				String windowOpenHtml = reportImgPreview.getWindowOpenHtml();
 				test.fail(MarkupHelper.createLabel("Test Case " + scriptName + " Status is FAILED:", ExtentColor.RED));
 				logger.info(scriptName + " Script is failed and Screenshot has been taken:");
 				test.fail(result.getThrowable());
-				String popupScript = reportImgPreview.getPopupScript();
-				test.fail(popupScript);
+//				String popupScript = reportImgPreview.getPopupScript();
+//				test.fail(popupScript);
 
 			}
 
@@ -133,36 +130,33 @@ public class baselib {
 
 				test.pass(MarkupHelper.createLabel("Test Case " + scriptName + " Status is PASSED", ExtentColor.GREEN));
 				String screenshotPath = screenshotLib.takescreenshot(scriptName);
-				String getS3url = UploadRead.upload(screenshotPath);
-				ReportIng_preview reportImgPreview = new ReportIng_preview(getS3url);
-				String windowOpenHtml = reportImgPreview.getWindowOpenHtml();
-				test.pass("This Test Case PASSED:" + "<br>" + windowOpenHtml);
+//				ReportIng_preview reportImgPreview = new ReportIng_preview(getS3url);
+//				String windowOpenHtml = reportImgPreview.getWindowOpenHtml();
+//				test.pass("This Test Case PASSED:" + "<br>" + windowOpenHtml);
 				logger.info(scriptName + " Script is passed and Report generated:");
-				String popupScript = reportImgPreview.getPopupScript();
-				test.pass(popupScript);
+//				String popupScript = reportImgPreview.getPopupScript();
+//				test.pass(popupScript);
 
 			} else if (result.getStatus() == ITestResult.SKIP) {
 
 				test.skip(
 						MarkupHelper.createLabel("Test Case " + scriptName + " Status is SKIPPED", ExtentColor.ORANGE));
 				String screenshotPath = screenshotLib.takescreenshot(scriptName);
-				String getS3url = UploadRead.upload(screenshotPath);
-				ReportIng_preview reportImgPreview = new ReportIng_preview(getS3url);
-				String windowOpenHtml = reportImgPreview.getWindowOpenHtml();
-				test.skip("This Test Case SKIPPED:" + "<br>" + windowOpenHtml);
+//				ReportIng_preview reportImgPreview = new ReportIng_preview(getS3url);
+//				String windowOpenHtml = reportImgPreview.getWindowOpenHtml();
+//				test.skip("This Test Case SKIPPED:" + "<br>" + windowOpenHtml);
 				logger.info(scriptName + " Script is skipped :");
 				test.skip(result.getThrowable());
-				String popupScript = reportImgPreview.getPopupScript();
-				test.skip(popupScript);
+//				String popupScript = reportImgPreview.getPopupScript();
+//				test.skip(popupScript);
 
 			}
 		}
 
 		else {
 			if (ITestResult.FAILURE == result.getStatus()) {
-				String Failresult = UploadRead.VerifyNoDataAvailable();
-				test.fail("This Test Case FAILED: " + Failresult.toUpperCase(), MediaEntityBuilder
-						.createScreenCaptureFromPath(screenshotLib.takescreenshot(scriptName)).build());
+//				test.fail("This Test Case FAILED: " + Failresult.toUpperCase(), MediaEntityBuilder
+//						.createScreenCaptureFromPath(screenshotLib.takescreenshot(scriptName)).build());
 				test.fail(MarkupHelper.createLabel("Test Case " + scriptName + " Status is FAILED:", ExtentColor.RED));
 				logger.info(scriptName + " Script is failed and Screenshot has been taken:");
 				test.fail(result.getThrowable());
